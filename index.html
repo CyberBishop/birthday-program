@@ -22,6 +22,89 @@
     </style>
   </head>
   <body class="bg-gradient-to-br from-purple-100 to-pink-100 text-gray-800">
+    <!-- Image Carousel Section -->
+    <section id="carousel" class="h-screen relative overflow-hidden">
+      <div class="relative h-full w-full">
+        <!-- Carousel Images -->
+        <div class="carousel-item active absolute inset-0 transition-opacity duration-1000">
+          <img 
+            src="https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+            alt="Birthday Celebration Image 1" 
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Victoria @ 80</h1>
+              <p class="text-xl sm:text-2xl font-light">A Life of Grace and Blessing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img 
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+            alt="Birthday Celebration Image 2" 
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Celebrating Together</h1>
+              <p class="text-xl sm:text-2xl font-light">80 Years of God's Faithfulness</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img 
+            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+            alt="Birthday Celebration Image 3" 
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Thanksgiving & Joy</h1>
+              <p class="text-xl sm:text-2xl font-light">A Legacy of Love</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button 
+          onclick="previousSlide()" 
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button 
+          onclick="nextSlide()" 
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Dots Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <button onclick="currentSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(3)" class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+          <a href="#order-of-service" class="text-white hover:text-pink-200 transition-colors duration-300">
+            <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Navigation -->
     <!-- <nav
       class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50"
@@ -509,6 +592,41 @@
     </button>
 
     <script>
+      // Carousel functionality
+      let currentSlideIndex = 0;
+      const slides = document.querySelectorAll('.carousel-item');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = slides.length;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('opacity-0', i !== index);
+        });
+        
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-white/70', i === index);
+          dot.classList.toggle('bg-white/40', i !== index);
+        });
+      }
+
+      function nextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+        showSlide(currentSlideIndex);
+      }
+
+      function previousSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlideIndex);
+      }
+
+      function currentSlide(index) {
+        currentSlideIndex = index - 1;
+        showSlide(currentSlideIndex);
+      }
+
+      // Auto-advance carousel every 5 seconds
+      setInterval(nextSlide, 5000);
+
       // Language toggle functions
       function toggleOpeningHymnLanguage(language) {
         const englishContent = document.getElementById('openingEnglishContent');
