@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-purple-100 to-pink-100 text-gray-800">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50"
+    >
+      <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div class="flex justify-between items-center">
+          <h1 class="text-lg sm:text-2xl font-bold text-purple-800">
+            Birthday Celebration
+          </h1>
+          <div class="flex space-x-3 sm:space-x-6 text-sm sm:text-base">
+            <a
+              href="#order-of-service"
+              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
+              >Order</a
+            >
+            <a
+              href="#opening-hymn"
+              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
+              >Opening</a
+            >
+            <a
+              href="#closing-hymn"
+              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
+              >Closing</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Order of Service Section -->
+    <section
+      id="order-of-service"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 sm:pt-20"
+    >
+      <div class="container mx-auto px-4 sm:px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-5xl font-bold text-indigo-800 mb-6 sm:mb-8">
+            Order of Service
+          </h2>
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
+            <div class="space-y-4 sm:space-y-6 text-base sm:text-lg">
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left"
+                  >Call to Worship</span
+                >
+                <span class="text-gray-600 text-left sm:text-right">Pastor</span>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left">Opening Hymn</span>
+                <span class="text-gray-600 text-left sm:text-right">Congregation</span>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left"
+                  >Prayer & Thanksgiving</span
+                >
+                <span class="text-gray-600 text-left sm:text-right">Birthday Celebrant</span>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left"
+                  >Birthday Wishes</span
+                >
+                <span class="text-gray-600 text-left sm:text-right">Family & Friends</span>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left">Cake Cutting</span>
+                <span class="text-gray-600 text-left sm:text-right">All</span>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 border-b border-indigo-200 gap-1 sm:gap-0"
+              >
+                <span class="font-semibold text-indigo-700 text-left"
+                  >Fellowship & Refreshments</span
+                >
+                <span class="text-gray-600 text-left sm:text-right">All</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 gap-1 sm:gap-0">
+                <span class="font-semibold text-indigo-700 text-left">Closing Hymn</span>
+                <span class="text-gray-600 text-left sm:text-right">Congregation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opening Hymn Section -->
+    <section
+      id="opening-hymn"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-100"
+    >
+      <div class="container mx-auto px-4 sm:px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-5xl font-bold text-emerald-800 mb-6 sm:mb-8">Opening Hymn</h2>
+          
+          <!-- Language Toggle for Opening Hymn -->
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-flex bg-emerald-100 rounded-full p-1 shadow-md">
+              <button 
+                onclick="toggleOpeningHymnLanguage('english')" 
+                id="openingEnglishBtn"
+                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-emerald-600 text-white shadow-md"
+              >
+                English
+              </button>
+              <button 
+                onclick="toggleOpeningHymnLanguage('yoruba')" 
+                id="openingYorubaBtn"
+                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-emerald-600 hover:bg-emerald-200"
+              >
+                Yoruba
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
+            <!-- English Opening Hymn Content -->
+            <div id="openingEnglishContent">
+              <h3 class="text-2xl sm:text-3xl font-semibold text-emerald-700 mb-6 sm:mb-8">
+                "How Great Thou Art"
+              </h3>
+              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
+                <div class="bg-emerald-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Verse 1:</p>
+                  <p class="text-gray-700">
+                    O Lord my God, when I in awesome wonder<br />
+                    Consider all the worlds Thy hands have made<br />
+                    I see the stars, I hear the rolling thunder<br />
+                    Thy power throughout the universe displayed
+                  </p>
+                </div>
+
+                <div class="bg-emerald-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Chorus:</p>
+                  <p class="text-gray-700 font-medium">
+                    Then sings my soul, my Savior God, to Thee<br />
+                    How great Thou art! How great Thou art!<br />
+                    Then sings my soul, my Savior God, to Thee<br />
+                    How great Thou art! How great Thou art!
+                  </p>
+                </div>
+
+                <div class="bg-emerald-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Verse 2:</p>
+                  <p class="text-gray-700">
+                    When through the woods and forest glades I wander<br />
+                    And hear the birds sing sweetly in the trees<br />
+                    When I look down from lofty mountain grandeur<br />
+                    And hear the brook and feel the gentle breeze
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yoruba Opening Hymn Content -->
+            <div id="openingYorubaContent" class="hidden">
+              <h3 class="text-2xl sm:text-3xl font-semibold text-emerald-700 mb-6 sm:mb-8">
+                "Nla Ni Oluwa Mi"
+              </h3>
+              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
+                <div class="bg-emerald-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Verse 1:</p>
+                  <p class="text-gray-700">
+                    Oluwa mi, nígbà tí mo bá rò jinlẹ̀<br />
+                    Sí gbogbo ohun tí ọwọ́ Rẹ ti dá<br />
+                    Mo rí àwọn ìràwọ̀, mo gbọ́ àrá<br />
+                    Agbára Rẹ kárí àgbáyé
+                  </p>
+                </div>
+
+                <div class="bg-emerald-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Egbe:</p>
+                  <p class="text-gray-700 font-medium">
+                    Nígbà náà ni ọkàn mi yóò kọrin<br />
+                    Nla ni Ọ! Nla ni Ọ!<br />
+                    Nígbà náà ni ọkàn mi yóò kọrin<br />
+                    Nla ni Ọ! Nla ni Ọ!
+                  </p>
+                </div>
+
+                <div class="bg-emerald-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-emerald-800 mb-2">Verse 2:</p>
+                  <p class="text-gray-700">
+                    Nígbà tí mo bá ń rìn nínú igbó<br />
+                    Tí mo sì ń gbọ́ àwọn ẹyẹ tí ń kọrin<br />
+                    Nígbà tí mo bá wo òkè gíga<br />
+                    Tí mo sì gbọ́ omi tí ń sàn
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Hymn Section -->
+    <section
+      id="closing-hymn"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 to-pink-100"
+    >
+      <div class="container mx-auto px-4 sm:px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-5xl font-bold text-rose-800 mb-6 sm:mb-8">Closing Hymn</h2>
+          
+          <!-- Language Toggle for Closing Hymn -->
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-flex bg-rose-100 rounded-full p-1 shadow-md">
+              <button 
+                onclick="toggleClosingHymnLanguage('english')" 
+                id="closingEnglishBtn"
+                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-rose-600 text-white shadow-md"
+              >
+                English
+              </button>
+              <button 
+                onclick="toggleClosingHymnLanguage('yoruba')" 
+                id="closingYorubaBtn"
+                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-rose-600 hover:bg-rose-200"
+              >
+                Yoruba
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
+            <!-- English Closing Hymn Content -->
+            <div id="closingEnglishContent">
+              <h3 class="text-2xl sm:text-3xl font-semibold text-rose-700 mb-6 sm:mb-8">
+                "Blessed Be Your Name"
+              </h3>
+              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
+                <div class="bg-rose-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Verse 1:</p>
+                  <p class="text-gray-700">
+                    Blessed be Your name in the land that is plentiful<br />
+                    Where Your streams of abundance flow<br />
+                    Blessed be Your name
+                  </p>
+                </div>
+
+                <div class="bg-rose-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Chorus:</p>
+                  <p class="text-gray-700 font-medium">
+                    Blessed be the name of the Lord<br />
+                    Blessed be Your name<br />
+                    Blessed be the name of the Lord<br />
+                    Blessed be Your glorious name
+                  </p>
+                </div>
+
+                <div class="bg-rose-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Verse 2:</p>
+                  <p class="text-gray-700">
+                    Blessed be Your name when I'm found in the desert place<br />
+                    Though I walk through the wilderness<br />
+                    Blessed be Your name
+                  </p>
+                </div>
+
+                <div class="bg-rose-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Bridge:</p>
+                  <p class="text-gray-700 font-medium">
+                    You give and take away<br />
+                    You give and take away<br />
+                    My heart will choose to say<br />
+                    Lord, blessed be Your name
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yoruba Closing Hymn Content -->
+            <div id="closingYorubaContent" class="hidden">
+              <h3 class="text-2xl sm:text-3xl font-semibold text-rose-700 mb-6 sm:mb-8">
+                "Bukun Ni Oruko Re"
+              </h3>
+              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
+                <div class="bg-rose-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Verse 1:</p>
+                  <p class="text-gray-700">
+                    Bukun ni orúkọ Rẹ ní ilẹ̀ àlàáfíà<br />
+                    Níbi tí ọrọ̀ Rẹ ti ń sàn<br />
+                    Bukun ni orúkọ Rẹ
+                  </p>
+                </div>
+
+                <div class="bg-rose-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Egbe:</p>
+                  <p class="text-gray-700 font-medium">
+                    Bukun ni orúkọ Olúwa<br />
+                    Bukun ni orúkọ Rẹ<br />
+                    Bukun ni orúkọ Olúwa<br />
+                    Bukun ni orúkọ ògo Rẹ
+                  </p>
+                </div>
+
+                <div class="bg-rose-50 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Verse 2:</p>
+                  <p class="text-gray-700">
+                    Bukun ni orúkọ Rẹ nígbà tí mo bá wà ní aṣálẹ̀<br />
+                    Bí mo ti ń rìn ní aginjù<br />
+                    Bukun ni orúkọ Rẹ
+                  </p>
+                </div>
+
+                <div class="bg-rose-100 p-4 sm:p-6 rounded-lg">
+                  <p class="font-semibold text-rose-800 mb-2">Bridge:</p>
+                  <p class="text-gray-700 font-medium">
+                    Ìwọ ní ń fún, Ìwọ sì ń gbà<br />
+                    Ìwọ ní ń fún, Ìwọ sì ń gbà<br />
+                    Ọkàn mi yóò yan láti sọ<br />
+                    Olúwa, bukun ni orúkọ Rẹ
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTop"
+      class="fixed bottom-8 right-8 bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <script>
+      // Language toggle functions
+      function toggleOpeningHymnLanguage(language) {
+        const englishContent = document.getElementById('openingEnglishContent');
+        const yorubaContent = document.getElementById('openingYorubaContent');
+        const englishBtn = document.getElementById('openingEnglishBtn');
+        const yorubaBtn = document.getElementById('openingYorubaBtn');
+
+        if (language === 'english') {
+          englishContent.classList.remove('hidden');
+          yorubaContent.classList.add('hidden');
+          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-emerald-600 text-white shadow-md';
+          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-emerald-600 hover:bg-emerald-200';
+        } else {
+          englishContent.classList.add('hidden');
+          yorubaContent.classList.remove('hidden');
+          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-emerald-600 text-white shadow-md';
+          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-emerald-600 hover:bg-emerald-200';
+        }
+      }
+
+      function toggleClosingHymnLanguage(language) {
+        const englishContent = document.getElementById('closingEnglishContent');
+        const yorubaContent = document.getElementById('closingYorubaContent');
+        const englishBtn = document.getElementById('closingEnglishBtn');
+        const yorubaBtn = document.getElementById('closingYorubaBtn');
+
+        if (language === 'english') {
+          englishContent.classList.remove('hidden');
+          yorubaContent.classList.add('hidden');
+          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-rose-600 text-white shadow-md';
+          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-rose-600 hover:bg-rose-200';
+        } else {
+          englishContent.classList.add('hidden');
+          yorubaContent.classList.remove('hidden');
+          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-rose-600 text-white shadow-md';
+          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-rose-600 hover:bg-rose-200';
+        }
+      }
+
+      // Scroll to top functionality
+      const scrollToTopBtn = document.getElementById("scrollToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.remove("opacity-0", "invisible");
+          scrollToTopBtn.classList.add("opacity-100", "visible");
+        } else {
+          scrollToTopBtn.classList.add("opacity-0", "invisible");
+          scrollToTopBtn.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for navigation links (additional support)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
