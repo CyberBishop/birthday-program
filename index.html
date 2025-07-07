@@ -1,896 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birthday Program</title>
-    <link rel="preconnect" href="https://          <div class=          <div class        </div>
-
-        <!-- Dots Indicator positioned directly under the frame -->
-        <div class="mt-3 sm:mt-4 flex space-x-2 z-30">
-          <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
-        </div>
-
-        <!-- Simple Static Arrow -->-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
-            <div class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative">
-              <img 
-                src="assets/img/img3.jpeg" 
-                alt="Birthday Celebration Image 3" 
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>l-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
-            <div class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative">
-              <img 
-                src="assets/img/img2.jpeg" 
-                alt="Birthday Celebration Image 2" 
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>ogleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-        scroll-snap-type: y mandatory;
-      }
-      body {
-        font-family: 'DM Sans', sans-serif;
-      }
-      section {
-        scroll-snap-align: start;
-      }
-
-      /* Confetti Animation */
-      .confetti {
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        background: #f43f5e;
-        animation: confetti-fall linear infinite;
-        z-index: 1;
-        pointer-events: none;
-      }
-
-      .confetti:nth-child(1) {
-        left: 10%;
-        animation-delay: 0s;
-        animation-duration: 3s;
-        background: #ec4899;
-      }
-
-      .confetti:nth-child(2) {
-        left: 20%;
-        animation-delay: 0.5s;
-        animation-duration: 2.5s;
-        background: #f59e0b;
-        transform: rotate(45deg);
-      }
-
-      .confetti:nth-child(3) {
-        left: 30%;
-        animation-delay: 1s;
-        animation-duration: 3.5s;
-        background: #10b981;
-        border-radius: 50%;
-      }
-
-      .confetti:nth-child(4) {
-        left: 40%;
-        animation-delay: 1.5s;
-        animation-duration: 2.8s;
-        background: #3b82f6;
-      }
-
-      .confetti:nth-child(5) {
-        left: 50%;
-        animation-delay: 2s;
-        animation-duration: 3.2s;
-        background: #8b5cf6;
-        transform: rotate(30deg);
-      }
-
-      .confetti:nth-child(6) {
-        left: 60%;
-        animation-delay: 0.3s;
-        animation-duration: 2.7s;
-        background: #f97316;
-        border-radius: 50%;
-      }
-
-      .confetti:nth-child(7) {
-        left: 70%;
-        animation-delay: 0.8s;
-        animation-duration: 3.8s;
-        background: #06b6d4;
-      }
-
-      .confetti:nth-child(8) {
-        left: 80%;
-        animation-delay: 1.2s;
-        animation-duration: 2.9s;
-        background: #84cc16;
-        transform: rotate(60deg);
-      }
-
-      .confetti:nth-child(9) {
-        left: 90%;
-        animation-delay: 1.8s;
-        animation-duration: 3.3s;
-        background: #d946ef;
-        border-radius: 50%;
-      }
-
-      .confetti:nth-child(10) {
-        left: 15%;
-        animation-delay: 2.5s;
-        animation-duration: 2.6s;
-        background: #f43f5e;
-        transform: rotate(15deg);
-      }
-
-      @keyframes confetti-fall {
-        0% {
-          transform: translateY(-100vh) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      .birthday-frame {
-        position: relative;
-        border: 8px solid #d4af37;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
-          inset 0 0 15px rgba(212, 175, 55, 0.1);
-        background: linear-gradient(45deg, #f4f4f4, #ffffff);
-        padding: 6px;
-      }
-
-      @media (min-width: 640px) {
-        .birthday-frame {
-          border: 12px solid #d4af37;
-          border-radius: 20px;
-          box-shadow: 0 0 30px rgba(212, 175, 55, 0.4),
-            inset 0 0 20px rgba(212, 175, 55, 0.1);
-          padding: 8px;
-        }
-      }
-
-      .birthday-frame::before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        left: -15px;
-        right: -15px;
-        bottom: -15px;
-        border: 3px solid #8b6914;
-        border-radius: 20px;
-        background: linear-gradient(45deg, #d4af37, #f4e99b, #d4af37);
-        z-index: -1;
-      }
-
-      @media (min-width: 640px) {
-        .birthday-frame::before {
-          top: -20px;
-          left: -20px;
-          right: -20px;
-          bottom: -20px;
-          border: 4px solid #8b6914;
-          border-radius: 25px;
-        }
-      }
-
-      .birthday-frame::after {
-        content: "✨ 80 Years of Blessing ✨";
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(45deg, #8b6914, #d4af37);
-        color: white;
-        padding: 6px 12px;
-        border-radius: 15px;
-        font-size: 11px;
-        font-weight: bold;
-        white-space: nowrap;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 10;
-      }
-
-      @media (min-width: 640px) {
-        .birthday-frame::after {
-          top: -45px;
-          padding: 8px 20px;
-          border-radius: 20px;
-          font-size: 14px;
-        }
-      }
-    </style>
-  </head>
-  <body class="bg-gradient-to-br from-rose-300 to-pink-300 text-gray-800">
-    <!-- Confetti Elements -->
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    
-    <!-- Image Carousel Section -->
-    <section id="carousel" class="h-screen relative overflow-hidden">
-      <div class="relative h-full w-full flex flex-col items-center justify-center p-6 sm:p-12">
-        <!-- Carousel Content Container -->
-        <div class="flex flex-col items-center justify-start pt-16 sm:pt-20 flex-1">
-          <!-- Carousel Images -->
-          <div class="carousel-item active absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
-            <div class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative">
-              <img 
-                src="assets/img/img1.jpeg" 
-                alt="Birthday Celebration Image 1" 
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
-              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Mummy Shittu @ 80</h1>
-              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">A Life of Grace and Blessing</p>
-            </div>
-          </div>
-
-          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
-            <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/5] relative">
-              <img 
-                src="assets/img/img2.jpeg" 
-                alt="Birthday Celebration Image 2" 
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
-              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Celebrating Together</h1>
-              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">80 Years of God's Faithfulness</p>
-            </div>
-          </div>
-
-          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
-            <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/5] relative">
-              <img 
-                src="assets/img/img3.jpeg" 
-                alt="Birthday Celebration Image 3" 
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
-              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Thanksgiving & Joy</h1>
-              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">A Legacy of Love</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dots Indicator positioned directly under the frame -->
-        <div class="mt-4 sm:mt-6 flex space-x-2 z-30">
-          <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
-        </div>
-
-        <!-- Simple Static Arrow -->
-        <div class="mt-8 sm:mt-12">
-          <a href="#order-of-service" class="text-white hover:text-pink-200 transition-colors duration-300">
-            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navigation -->
-    <!-- <nav
-      class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50"
-    >
-      <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-        <div class="flex justify-between items-center">
-          <h1 class="text-lg sm:text-2xl font-bold text-purple-800">
-            Birthday Celebration
-          </h1>
-          <div class="flex space-x-3 sm:space-x-6 text-sm sm:text-base">
-            <a
-              href="#order-of-service"
-              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
-              >Order</a
-            >
-            <a
-              href="#opening-hymn"
-              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
-              >Opening</a
-            >
-            <a
-              href="#closing-hymn"
-              class="text-purple-600 hover:text-purple-800 transition-colors duration-300"
-              >Closing</a
-            >
-          </div>
-        </div>
-      </div>
-    </nav> -->
-
-    <!-- Order of Service Section -->
-    <section
-      id="order-of-service"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200 to-pink-200 pt-12 sm:pt-12"
-    >
-      <div class="container mx-auto px-4 sm:px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-          <h6 class="text-[18px] sm:text-xl font-[500] text-pink-900 mb-2 ">
-            Mummy Shittu @ 80
-          </h6>
-          <h2 class="text-[34px] sm:text-5xl font-bold text-pink-800 mb-4 sm:mb-8">
-            Order of Service
-          </h2>
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12">
-            <div class="space-y-0 sm:space-y-0 text-base sm:text-lg">
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left"
-                  >Opening Prayer</span
-                >
-                <!-- <span class="text-gray-600 text-left sm:text-right">Pastor</span> -->
-              </div>
-
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left"
-                  >Arrival of Celebrant</span
-                >
-                <!-- <span class="text-gray-600 text-left sm:text-right">Birthday Celebrant</span> -->
-              </div>
-
-              <a
-              href="#opening-hymn"
-              class="block text-purple-600 hover:text-purple-800 transition-colors duration-300"
-              >
-              <div
-                class="flex items-center justify-between py-4 md:gap-4 border-b border-pink-200 "
-              >
-              <div class="flex-1 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
-
-                  <span class="font-semibold text-pink-500 text-left">Opening Hymn</span>
-                  <!-- <span class="text-pink-700 hover:text-purple-800 transition-colors duration-300 text-left sm:text-right inline-flex items-center gap-1.5 ">
-                      Congregation
-                  </span> -->
-              </div>
-                <svg
-                  class="w-6 h-6 inline-block rotate-[145deg] text-pink-700 "
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  ></path>
-                </svg>
-              </div>
-                </a>
-
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left"
-                  >Praise & Worship</span
-                >
-                <!-- <span class="text-gray-600 text-left sm:text-right">Birthday Celebrant</span> -->
-              </div>
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left"
-                  >Word of exhortation</span
-                >
-                <!-- <span class="text-gray-600 text-left sm:text-right">Family & Friends</span> -->
-              </div>
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left">
-                  Testimony of Celebrant
-                </span>
-                <!-- <span class="text-gray-600 text-left sm:text-right">All</span> -->
-              </div>
-              <div
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
-              >
-                <span class="font-semibold text-gray-700 text-left"
-                  >Prayer for Celebrant</span
-                >
-                <!-- <span class="text-gray-600 text-left sm:text-right">All</span> -->
-              </div>
-
-              <a
-              href="#closing-hymn"
-              class="block text-purple-600 hover:text-purple-800 transition-colors duration-300"
-              >
-              <div
-                class="flex items-center justify-between md:gap-4 py-4 border- border-pink-200 "
-              >
-              <div class="flex-1 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
-
-                  <span class="font-semibold text-pink-500 text-left">Closing Hymn</span>
-                  <!-- <span class="text-pink-700 hover:text-purple-800 transition-colors duration-300 text-left sm:text-right inline-flex items-center gap-1.5 ">
-                      Congregation
-                  </span> -->
-              </div>
-
-                <svg
-                  class="w-6 h-6 inline-block rotate-[145deg] text-pink-700 "
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  ></path>
-                </svg>
-                
-                
-              </div>
-                </a>
-
-              <!-- <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 gap-1 sm:gap-0">
-                <span class="font-semibold text-pink-700 text-left">Closing Hymn</span>
-                <span class="text-gray-600 text-left sm:text-right">Congregation</span>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Opening Hymn Section -->
-    <section
-      id="opening-hymn"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
-    >
-      <div class="container mx-auto px-4 sm:px-6 text-center">
-        <div class="max-w-4xl mx-auto py-14 pb-20 ">
-          <h2 class="text-3xl sm:text-5xl font-bold text-pink-800 mb-6 sm:mb-8">Opening Hymn</h2>
-          
-          <!-- Language Toggle for Opening Hymn -->
-          <div class="mb-6 sm:mb-8">
-            <div class="inline-flex bg-pink-100 rounded-full p-1 shadow-md">
-              <button 
-                onclick="toggleOpeningHymnLanguage('english')" 
-                id="openingEnglishBtn"
-                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200"
-              >
-                English
-              </button>
-              <button 
-                onclick="toggleOpeningHymnLanguage('yoruba')" 
-                id="openingYorubaBtn"
-                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md"
-              >
-                Yoruba
-              </button>
-            </div>
-          </div>
-
-          <div class=" sm:px-12 sm:py-6 ">
-          <div class=" p-2 sm:px-12 sm:py-0 ">
-            <!-- English Opening Hymn Content -->
-            <div id="openingEnglishContent" class="hidden">
-              <h3 class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8">
-                "O Magnify the Lord with Me" (CACGHB 92)
-              </h3>
-              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
-                  <p class="text-gray-700">
-                    O Magnify the Lord with me,<br />
-                    Ye people of His choice!<br />
-                    Let all to whom He lendeth breath<br />
-                    Now in His name rejoice,<br />
-                    For love's blest revelation,<br />
-                    For rest from condemnation,<br />
-                    For uttermost salvation,<br />
-                    To Him give thanks.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Chorus:</p>
-                  <p class="text-gray-700 font-medium">
-                    Let all ...the people praise Thee,<br />
-                    Let all ...the people praise Thee!<br />
-                    Let all ...the people praise Thy name<br />
-                    For ever and for evermore<br />
-                    Let all ...the people praise Thee<br />
-                    Let all ...the people praise Thee<br />
-                    Let all ...the people praise Thy name<br />
-                    For ever and for ever more.
-                  </p>
-                </div>
-
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
-                  <p class="text-gray-700">
-                    O praise Him for His holiness,<br />
-                    His wisdom and His grace,<br />
-                    Sing praises for the precious blood<br />
-                    Which ransom'd all our race;<br />
-                    In tenderness He sought us,<br />
-                    From depths of sin He brought us,<br />
-                    The way of life then taught us,<br />
-                    To Him give thanks.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
-                  <p class="text-gray-700">
-                    Had I a thousand tongues to sing,<br />
-                    The half could ne'er be told<br />
-                    Of love so rich, so full and free,<br />
-                    Of blessings manifold;<br />
-                    Of grace that faileth never,<br />
-                    Peace flowing as a river<br />
-                    From God the glorious Giver,<br />
-                    To Him give thanks.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Yoruba Opening Hymn Content -->
-            <div id="openingYorubaContent">
-              <h3 class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8">
-                "Gbé Olúwa ga pèlú mi" (CACGHB 92)
-              </h3>
-              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
-                  <p class="text-gray-700">
-                    Gbé Olúwa ga pèlú mi<br />
-                    Ẹyin ènìyàn rẹ̀<br />
-                    Kí gbogbo ẹ̀dá aláyé<br />
-                    Má yọ̀ l'órúkọ Rẹ̀<br />
-                    Fún ìfẹ́ tí Ó ń fìhàn<br />
-                    Fún ìsìmí l'ọkàn wa<br />
-                    Fún ìgbàlà kíkún Rẹ̀,<br />
-                    Tìrẹ l'ọpẹ́.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Egbe:</p>
-                  <p class="text-gray-700 font-medium">
-                    Kí gbogbo wa f'ọpẹ́ fún<br />
-                    Kí gbogbo wa f'ọpẹ́ fún<br />
-                    Kí gbogbo wa yìn orúkọ<br />
-                    Olúwa wa Títí láéláé, àní, títí láéláé<br />
-                    Kí gbogbo wa f'ọpẹ́ fún<br />
-                    Kí gbogbo wa f'ọpẹ́ fún<br />
-                    Kí gbogbo wa yìn orúkọ<br />
-                    Olúwa Títí láéláé.
-                  </p>
-                </div>
-
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
-                  <p class="text-gray-700">
-                    Ẹ yìn fún ìwà –mímọ́ Rẹ̀,<br />
-                    Fún orẹ-ọ̀fẹ́ Rẹ̀,<br />
-                    Kọrin ìyìn fún ẹ̀jẹ̀ Rẹ̀<br />
-                    Tó fi ra wa padà<br />
-                    Ìfẹ́ ló fi wá wa rí<br />
-                    Nínú ìrà ẹ̀ṣẹ̀ wa<br />
-                    Ó f'ọ̀nà ìyè hàn wa<br />
-                    Ẹ f'ọpẹ́ fún.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
-                  <p class="text-gray-700">
-                    Èmi 'bá l'ẹgbẹ̀rún ahọ́n,<br />
-                    Nkò le ròyìn náà tán;<br />
-                    Ìfẹ́ Rẹ̀ sí mi pọ̀ jọjọ,<br />
-                    Àgọ́ 'bùkún mi kún,<br />
-                    Orẹ-ọ̀fẹ́ tí kì yẹ̀,<br />
-                    Àláfíà bí odò<br />
-                    Lat'ọ̀dọ̀ Olùbùkún;<br />
-                    Ẹ f'ọpẹ́ fún.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Closing Hymn Section -->
-    <section
-      id="closing-hymn"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
-    >
-      <div class="container mx-auto px-4 sm:px-6 text-center">
-        <div class="max-w-4xl mx-auto py-14 pb-20 ">
-          <h2 class="text-3xl sm:text-5xl font-bold text-pink-800 mb-6 sm:mb-8">Closing Hymn</h2>
-          
-          <!-- Language Toggle for Closing Hymn -->
-          <div class="mb-6 sm:mb-8">
-            <div class="inline-flex bg-pink-100 rounded-full p-1 shadow-md">
-              <button 
-                onclick="toggleClosingHymnLanguage('english')" 
-                id="closingEnglishBtn"
-                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200"
-              >
-                English
-              </button>
-              <button 
-                onclick="toggleClosingHymnLanguage('yoruba')" 
-                id="closingYorubaBtn"
-                class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md"
-              >
-                Yoruba
-              </button>
-            </div>
-          </div>
-
-          <div class=" sm:px-12 py-6 ">
-          <div class="p-2 sm:px-12 sm:py-0 ">
-            <!-- English Closing Hymn Content -->
-            <div id="closingEnglishContent" class="hidden">
-              <h3 class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8">
-                "Saved by Grace Alone" (CACGHB 261)
-              </h3>
-              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
-                  <p class="text-gray-700">
-                    Grace! 'tis a charming a sound,<br />
-                    Harmonious to the ear;<br />
-                    Heaven with the echo shall resound,<br />
-                    And all the earth shall hear.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Chorus:</p>
-                  <p class="text-gray-700 font-medium">
-                    Saved by grace alone!<br />
-                    This is all my plea:<br />
-                    Jesus died for all mankind<br />
-                    And Jesus died for me.
-                  </p>
-                </div>
-
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
-                  <p class="text-gray-700">
-                    'Twas grace that wrote my name<br />
-                    In thy eternal book;<br />
-                    'Twas grace that gave me to the Lamb,<br />
-                    Who all my sorrows took.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
-                  <p class="text-gray-700">
-                    Grace taught my wand'ring feet<br />
-                    To tread heav'nly road;<br />
-                    And new supplies-each hour I meet,<br />
-                    While pressing on to God.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Yoruba Closing Hymn Content -->
-            <div id="closingYorubaContent">
-              <h3 class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8">
-                "Orẹ-ọ̀fẹ́ l' ohun" (CACGHB 261)
-              </h3>
-              <div class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
-                  <p class="text-gray-700">
-                    Orẹ-ọ̀fẹ́, l' ohun<br />
-                    Adùn ni l'étí wa;<br />
-                    Gbohùn-gbohùn rẹ̀ y'ọ́ gba ọ̀run kan<br />
-                    Ayé y'ọ́ gbọ́ pẹ̀lú.
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Egbe:</p>
-                  <p class="text-gray-700 font-medium">
-                    Orẹ-Ọ̀fẹ́ ṣá<br />
-                    N'ìgbékẹ̀lé mi,<br />
-                    Jésù kú fún aráyé,<br />
-                    Ó kú fún mi pẹ̀lú.
-                  </p>
-                </div>
-
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
-                  <p class="text-gray-700">
-                    Orẹ-ọ̀fẹ́ l'ó kọ<br />
-                    Orúkọ mi l'ọ̀run<br />
-                    L'ó fi mi fún Od'àgútàn,<br />
-                    T'Ó gba ìyà mi jẹ
-                  </p>
-                </div>
-
-                <div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
-                  <p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
-                  <p class="text-gray-700">
-                    Orẹ-Ọ̀fẹ́ tọ́ mi<br />
-                    S'ọ́nà àláfíà,<br />
-                    Ó ń tọ́jú mi l'ọjọ́jùmọ́<br />
-                    Ní ìrìn àjò mi.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scroll to Top Button -->
-    <button
-      id="scrollToTop"
-      class="fixed bottom-6 right-6 bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible"
-    >
-      <svg
-        class="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 10l7-7m0 0l7 7m-7-7v18"
-        ></path>
-      </svg>
-    </button>
-
-    <script>
-      // Carousel functionality
-      let currentSlideIndex = 0;
-      const slides = document.querySelectorAll('.carousel-item');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const totalSlides = slides.length;
-
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('opacity-0', i !== index);
-        });
-        
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-white/70', i === index);
-          dot.classList.toggle('bg-white/40', i !== index);
-        });
-      }
-
-      function nextSlide() {
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-        showSlide(currentSlideIndex);
-      }
-
-      function previousSlide() {
-        currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
-        showSlide(currentSlideIndex);
-      }
-
-      function currentSlide(index) {
-        currentSlideIndex = index - 1;
-        showSlide(currentSlideIndex);
-      }
-
-      // Auto-advance carousel every 5 seconds
-      setInterval(nextSlide, 5000);
-
-      // Language toggle functions
-      function toggleOpeningHymnLanguage(language) {
-        const englishContent = document.getElementById('openingEnglishContent');
-        const yorubaContent = document.getElementById('openingYorubaContent');
-        const englishBtn = document.getElementById('openingEnglishBtn');
-        const yorubaBtn = document.getElementById('openingYorubaBtn');
-
-        if (language === 'english') {
-          englishContent.classList.remove('hidden');
-          yorubaContent.classList.add('hidden');
-          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md';
-          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200';
-        } else {
-          englishContent.classList.add('hidden');
-          yorubaContent.classList.remove('hidden');
-          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md';
-          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200';
-        }
-      }
-
-      function toggleClosingHymnLanguage(language) {
-        const englishContent = document.getElementById('closingEnglishContent');
-        const yorubaContent = document.getElementById('closingYorubaContent');
-        const englishBtn = document.getElementById('closingEnglishBtn');
-        const yorubaBtn = document.getElementById('closingYorubaBtn');
-
-        if (language === 'english') {
-          englishContent.classList.remove('hidden');
-          yorubaContent.classList.add('hidden');
-          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md';
-          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200';
-        } else {
-          englishContent.classList.add('hidden');
-          yorubaContent.classList.remove('hidden');
-          yorubaBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md';
-          englishBtn.className = 'px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200';
-        }
-      }
-
-      // Scroll to top functionality
-      const scrollToTopBtn = document.getElementById("scrollToTop");
-
-      window.addEventListener("scroll", () => {
-        const scrollPosition = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        
-        // Show/hide back to top button (only after scrolling past first screen)
-        if (scrollPosition > windowHeight * 2.0) {
-          scrollToTopBtn.classList.remove("opacity-0", "invisible");
-          scrollToTopBtn.classList.add("opacity-100", "visible");
-        } else {
-          scrollToTopBtn.classList.add("opacity-0", "invisible");
-          scrollToTopBtn.classList.remove("opacity-100", "visible");
-        }
-      });
-
-      scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-
-      // Smooth scrolling for navigation links (additional support)
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-    </script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Mummy Shittu @ 80 - Birthday Program</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			html {
+				scroll-behavior: smooth;
+				scroll-snap-type: y mandatory;
+			}
+			body {
+				font-family: "DM Sans", sans-serif;
+			}
+			section {
+				scroll-snap-align: start;
+			}
+
+			/* Confetti Animation */
+			.confetti {
+				position: fixed;
+				width: 10px;
+				height: 10px;
+				background: #f43f5e;
+				animation: confetti-fall linear infinite;
+				z-index: 1;
+				pointer-events: none;
+			}
+
+			.confetti:nth-child(1) {
+				left: 10%;
+				animation-delay: 0s;
+				animation-duration: 3s;
+				background: #ec4899;
+			}
+
+			.confetti:nth-child(2) {
+				left: 20%;
+				animation-delay: 0.5s;
+				animation-duration: 2.5s;
+				background: #f59e0b;
+				transform: rotate(45deg);
+			}
+
+			.confetti:nth-child(3) {
+				left: 30%;
+				animation-delay: 1s;
+				animation-duration: 3.5s;
+				background: #10b981;
+				border-radius: 50%;
+			}
+
+			.confetti:nth-child(4) {
+				left: 40%;
+				animation-delay: 1.5s;
+				animation-duration: 2.8s;
+				background: #3b82f6;
+			}
+
+			.confetti:nth-child(5) {
+				left: 50%;
+				animation-delay: 2s;
+				animation-duration: 3.2s;
+				background: #8b5cf6;
+				transform: rotate(30deg);
+			}
+
+			.confetti:nth-child(6) {
+				left: 60%;
+				animation-delay: 0.3s;
+				animation-duration: 2.7s;
+				background: #f97316;
+				border-radius: 50%;
+			}
+
+			.confetti:nth-child(7) {
+				left: 70%;
+				animation-delay: 0.8s;
+				animation-duration: 3.8s;
+				background: #06b6d4;
+			}
+
+			.confetti:nth-child(8) {
+				left: 80%;
+				animation-delay: 1.2s;
+				animation-duration: 2.9s;
+				background: #84cc16;
+				transform: rotate(60deg);
+			}
+
+			.confetti:nth-child(9) {
+				left: 90%;
+				animation-delay: 1.8s;
+				animation-duration: 3.3s;
+				background: #d946ef;
+				border-radius: 50%;
+			}
+
+			.confetti:nth-child(10) {
+				left: 15%;
+				animation-delay: 2.5s;
+				animation-duration: 2.6s;
+				background: #f43f5e;
+				transform: rotate(15deg);
+			}
+
+			@keyframes confetti-fall {
+				0% {
+					transform: translateY(-100vh) rotate(0deg);
+					opacity: 1;
+				}
+				100% {
+					transform: translateY(100vh) rotate(360deg);
+					opacity: 0;
+				}
+			}
+
+			.birthday-frame {
+				position: relative;
+				border: 8px solid #d4af37;
+				border-radius: 15px;
+				box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+					inset 0 0 15px rgba(212, 175, 55, 0.1);
+				background: linear-gradient(45deg, #f4f4f4, #ffffff);
+				padding: 6px;
+			}
+
+			@media (min-width: 640px) {
+				.birthday-frame {
+					border: 12px solid #d4af37;
+					border-radius: 20px;
+					box-shadow: 0 0 30px rgba(212, 175, 55, 0.4),
+						inset 0 0 20px rgba(212, 175, 55, 0.1);
+					padding: 8px;
+				}
+			}
+
+			.birthday-frame::before {
+				content: "";
+				position: absolute;
+				top: -15px;
+				left: -15px;
+				right: -15px;
+				bottom: -15px;
+				border: 3px solid #8b6914;
+				border-radius: 20px;
+				background: linear-gradient(45deg, #d4af37, #f4e99b, #d4af37);
+				z-index: -1;
+			}
+
+			@media (min-width: 640px) {
+				.birthday-frame::before {
+					top: -20px;
+					left: -20px;
+					right: -20px;
+					bottom: -20px;
+					border: 4px solid #8b6914;
+					border-radius: 25px;
+				}
+			}
+
+			.birthday-frame::after {
+				content: "✨ 80 Years of Blessing ✨";
+				position: absolute;
+				top: -30px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: linear-gradient(45deg, #8b6914, #d4af37);
+				color: white;
+				padding: 6px 12px;
+				border-radius: 15px;
+				font-size: 11px;
+				font-weight: bold;
+				white-space: nowrap;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+				z-index: 10;
+			}
+
+			@media (min-width: 640px) {
+				.birthday-frame::after {
+					top: -45px;
+					padding: 8px 20px;
+					border-radius: 20px;
+					font-size: 14px;
+				}
+			}
+		</style>
+	</head>
+	<body class="bg-gradient-to-br from-rose-300 to-pink-300 text-gray-800">
+		<!-- Confetti Elements -->
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+		<div class="confetti"></div>
+
+		<!-- Image Carousel Section -->
+		<section id="carousel" class="h-screen relative overflow-hidden">
+			<div
+				class="relative h-full w-full flex flex-col items-center justify-center p-6 sm:p-12"
+			>
+				<!-- Carousel Content Container -->
+				<div
+					class="flex flex-col items-center justify-start pt-16 sm:pt-20 flex-1"
+				>
+					<!-- Carousel Images -->
+					<div
+						class="carousel-item active absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12"
+					>
+						<div
+							class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative"
+						>
+							<img
+								src="assets/img/img1.jpeg"
+								alt="Birthday Celebration Image 1"
+								class="w-full h-full object-cover rounded-lg"
+							/>
+						</div>
+						<div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+							<h1
+								class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg"
+							>
+								Mummy Shittu @ 80
+							</h1>
+							<p
+								class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md"
+							>
+								A Life of Grace and Blessing
+							</p>
+						</div>
+					</div>
+
+					<div
+						class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12"
+					>
+						<div
+							class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative"
+						>
+							<img
+								src="assets/img/img2.jpeg"
+								alt="Birthday Celebration Image 2"
+								class="w-full h-full object-cover rounded-lg"
+							/>
+						</div>
+						<div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+							<h1
+								class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg"
+							>
+								Celebrating Together
+							</h1>
+							<p
+								class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md"
+							>
+								80 Years of God's Faithfulness
+							</p>
+						</div>
+					</div>
+
+					<div
+						class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12"
+					>
+						<div
+							class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative"
+						>
+							<img
+								src="assets/img/img3.jpeg"
+								alt="Birthday Celebration Image 3"
+								class="w-full h-full object-cover rounded-lg"
+							/>
+						</div>
+						<div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+							<h1
+								class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg"
+							>
+								Thanksgiving & Joy
+							</h1>
+							<p
+								class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md"
+							>
+								A Legacy of Love
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dots Indicator positioned directly under the frame -->
+				<div class="mt-4 sm:mt-6 flex space-x-2 z-30">
+					<button
+						onclick="currentSlide(1)"
+						class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"
+					></button>
+					<button
+						onclick="currentSlide(2)"
+						class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"
+					></button>
+					<button
+						onclick="currentSlide(3)"
+						class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"
+					></button>
+				</div>
+
+				<!-- Simple Static Arrow -->
+				<div class="mt-8 sm:mt-12">
+					<a
+						href="#order-of-service"
+						class="text-white hover:text-pink-200 transition-colors duration-300"
+					>
+						<svg
+							class="w-6 h-6 sm:w-8 sm:h-8"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 14l-7 7m0 0l-7-7m7 7V3"
+							></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Order of Service Section -->
+		<section
+			id="order-of-service"
+			class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200 to-pink-200 pt-12 sm:pt-12"
+		>
+			<div class="container mx-auto px-4 sm:px-6 text-center">
+				<div class="max-w-3xl mx-auto">
+					<h6 class="text-[18px] sm:text-xl font-[500] text-pink-900 mb-2">
+						Mummy Shittu @ 80
+					</h6>
+					<h2
+						class="text-[34px] sm:text-5xl font-bold text-pink-800 mb-4 sm:mb-8"
+					>
+						Order of Service
+					</h2>
+					<div
+						class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-12"
+					>
+						<div class="space-y-0 sm:space-y-0 text-base sm:text-lg">
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Opening Prayer</span
+								>
+							</div>
+
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Arrival of Celebrant</span
+								>
+							</div>
+
+							<a
+								href="#opening-hymn"
+								class="block text-purple-600 hover:text-purple-800 transition-colors duration-300"
+							>
+								<div
+									class="flex items-center justify-between py-4 md:gap-4 border-b border-pink-200"
+								>
+									<div
+										class="flex-1 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0"
+									>
+										<span class="font-semibold text-pink-500 text-left"
+											>Opening Hymn</span
+										>
+									</div>
+									<svg
+										class="w-6 h-6 inline-block rotate-[145deg] text-pink-700"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M5 10l7-7m0 0l7 7m-7-7v18"
+										></path>
+									</svg>
+								</div>
+							</a>
+
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Praise & Worship</span
+								>
+							</div>
+
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Word of exhortation</span
+								>
+							</div>
+
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Testimony of Celebrant</span
+								>
+							</div>
+
+							<div
+								class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 border-b border-pink-200 gap-1 sm:gap-0"
+							>
+								<span class="font-semibold text-gray-700 text-left"
+									>Prayer for Celebrant</span
+								>
+							</div>
+
+							<a
+								href="#closing-hymn"
+								class="block text-purple-600 hover:text-purple-800 transition-colors duration-300"
+							>
+								<div class="flex items-center justify-between md:gap-4 py-4">
+									<div
+										class="flex-1 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0"
+									>
+										<span class="font-semibold text-pink-500 text-left"
+											>Closing Hymn</span
+										>
+									</div>
+									<svg
+										class="w-6 h-6 inline-block rotate-[145deg] text-pink-700"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M5 10l7-7m0 0l7 7m-7-7v18"
+										></path>
+									</svg>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Opening Hymn Section -->
+		<section
+			id="opening-hymn"
+			class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
+		>
+			<div class="container mx-auto px-4 sm:px-6 text-center">
+				<div class="max-w-4xl mx-auto py-14 pb-20">
+					<h2 class="text-3xl sm:text-5xl font-bold text-pink-800 mb-6 sm:mb-8">
+						Opening Hymn
+					</h2>
+
+					<!-- Language Toggle for Opening Hymn -->
+					<div class="mb-6 sm:mb-8">
+						<div class="inline-flex bg-pink-100 rounded-full p-1 shadow-md">
+							<button
+								onclick="toggleOpeningHymnLanguage('english')"
+								id="openingEnglishBtn"
+								class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200"
+							>
+								English
+							</button>
+							<button
+								onclick="toggleOpeningHymnLanguage('yoruba')"
+								id="openingYorubaBtn"
+								class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md"
+							>
+								Yoruba
+							</button>
+						</div>
+					</div>
+
+					<div class="sm:px-12 sm:py-6">
+						<!-- English Opening Hymn Content -->
+						<div id="openingEnglishContent" class="hidden">
+							<h3
+								class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8"
+							>
+								"O Magnify the Lord with Me" (CACGHB 92)
+							</h3>
+							<div
+								class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
+							>
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
+									<p class="text-gray-700">
+										O Magnify the Lord with me,<br />
+										Ye people of His choice!<br />
+										Let all to whom He lendeth breath<br />
+										Now in His name rejoice,<br />
+										For love's blest revelation,<br />
+										For rest from condemnation,<br />
+										For uttermost salvation,<br />
+										To Him give thanks.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Chorus:</p>
+									<p class="text-gray-700 font-medium">
+										Let all ...the people praise Thee,<br />
+										Let all ...the people praise Thee!<br />
+										Let all ...the people praise Thy name<br />
+										For ever and for evermore<br />
+										Let all ...the people praise Thee<br />
+										Let all ...the people praise Thee<br />
+										Let all ...the people praise Thy name<br />
+										For ever and for ever more.
+									</p>
+								</div>
+
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
+									<p class="text-gray-700">
+										O praise Him for His holiness,<br />
+										His wisdom and His grace,<br />
+										Sing praises for the precious blood<br />
+										Which ransom'd all our race;<br />
+										In tenderness He sought us,<br />
+										From depths of sin He brought us,<br />
+										The way of life then taught us,<br />
+										To Him give thanks.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
+									<p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
+									<p class="text-gray-700">
+										Had I a thousand tongues to sing,<br />
+										The half could ne'er be told<br />
+										Of love so rich, so full and free,<br />
+										Of blessings manifold;<br />
+										Of grace that faileth never,<br />
+										Peace flowing as a river<br />
+										From God the glorious Giver,<br />
+										To Him give thanks.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Yoruba Opening Hymn Content -->
+						<div id="openingYorubaContent">
+							<h3
+								class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8"
+							>
+								"Gbé Olúwa ga pèlú mi" (CACGHB 92)
+							</h3>
+							<div
+								class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
+							>
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
+									<p class="text-gray-700">
+										Gbé Olúwa ga pèlú mi<br />
+										Ẹyin ènìyàn rẹ̀<br />
+										Kí gbogbo ẹ̀dá aláyé<br />
+										Má yọ̀ l'órúkọ Rẹ̀<br />
+										Fún ìfẹ́ tí Ó ń fìhàn<br />
+										Fún ìsìmí l'ọkàn wa<br />
+										Fún ìgbàlà kíkún Rẹ̀,<br />
+										Tìrẹ l'ọpẹ́.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Egbe:</p>
+									<p class="text-gray-700 font-medium">
+										Kí gbogbo wa f'ọpẹ́ fún<br />
+										Kí gbogbo wa f'ọpẹ́ fún<br />
+										Kí gbogbo wa yìn orúkọ<br />
+										Olúwa wa Títí láéláé, àní, títí láéláé<br />
+										Kí gbogbo wa f'ọpẹ́ fún<br />
+										Kí gbogbo wa f'ọpẹ́ fún<br />
+										Kí gbogbo wa yìn orúkọ<br />
+										Olúwa Títí láéláé.
+									</p>
+								</div>
+
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
+									<p class="text-gray-700">
+										Ẹ yìn fún ìwà –mímọ́ Rẹ̀,<br />
+										Fún orẹ-ọ̀fẹ́ Rẹ̀,<br />
+										Kọrin ìyìn fún ẹ̀jẹ̀ Rẹ̀<br />
+										Tó fi ra wa padà<br />
+										Ìfẹ́ ló fi wá wa rí<br />
+										Nínú ìrà ẹ̀ṣẹ̀ wa<br />
+										Ó f'ọ̀nà ìyè hàn wa<br />
+										Ẹ f'ọpẹ́ fún.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
+									<p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
+									<p class="text-gray-700">
+										Èmi 'bá l'ẹgbẹ̀rún ahọ́n,<br />
+										Nkò le ròyìn náà tán;<br />
+										Ìfẹ́ Rẹ̀ sí mi pọ̀ jọjọ,<br />
+										Àgọ́ 'bùkún mi kún,<br />
+										Orẹ-ọ̀fẹ́ tí kì yẹ̀,<br />
+										Àláfíà bí odò<br />
+										Lat'ọ̀dọ̀ Olùbùkún;<br />
+										Ẹ f'ọpẹ́ fún.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Closing Hymn Section -->
+		<section
+			id="closing-hymn"
+			class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
+		>
+			<div class="container mx-auto px-4 sm:px-6 text-center">
+				<div class="max-w-4xl mx-auto py-14 pb-20">
+					<h2 class="text-3xl sm:text-5xl font-bold text-pink-800 mb-6 sm:mb-8">
+						Closing Hymn
+					</h2>
+
+					<!-- Language Toggle for Closing Hymn -->
+					<div class="mb-6 sm:mb-8">
+						<div class="inline-flex bg-pink-100 rounded-full p-1 shadow-md">
+							<button
+								onclick="toggleClosingHymnLanguage('english')"
+								id="closingEnglishBtn"
+								class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200"
+							>
+								English
+							</button>
+							<button
+								onclick="toggleClosingHymnLanguage('yoruba')"
+								id="closingYorubaBtn"
+								class="px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md"
+							>
+								Yoruba
+							</button>
+						</div>
+					</div>
+
+					<div class="sm:px-12 py-6">
+						<!-- English Closing Hymn Content -->
+						<div id="closingEnglishContent" class="hidden">
+							<h3
+								class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8"
+							>
+								"Saved by Grace Alone" (CACGHB 261)
+							</h3>
+							<div
+								class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
+							>
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
+									<p class="text-gray-700">
+										Grace! 'tis a charming a sound,<br />
+										Harmonious to the ear;<br />
+										Heaven with the echo shall resound,<br />
+										And all the earth shall hear.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Chorus:</p>
+									<p class="text-gray-700 font-medium">
+										Saved by grace alone!<br />
+										This is all my plea:<br />
+										Jesus died for all mankind<br />
+										And Jesus died for me.
+									</p>
+								</div>
+
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
+									<p class="text-gray-700">
+										'Twas grace that wrote my name<br />
+										In thy eternal book;<br />
+										'Twas grace that gave me to the Lamb,<br />
+										Who all my sorrows took.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
+									<p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
+									<p class="text-gray-700">
+										Grace taught my wand'ring feet<br />
+										To tread heav'nly road;<br />
+										And new supplies-each hour I meet,<br />
+										While pressing on to God.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Yoruba Closing Hymn Content -->
+						<div id="closingYorubaContent">
+							<h3
+								class="text-2xl sm:text-3xl font-semibold text-pink-700 mb-6 sm:mb-8"
+							>
+								"Orẹ-ọ̀fẹ́ l' ohun" (CACGHB 261)
+							</h3>
+							<div
+								class="text-left space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
+							>
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 1:</p>
+									<p class="text-gray-700">
+										Orẹ-ọ̀fẹ́, l' ohun<br />
+										Adùn ni l'étí wa;<br />
+										Gbohùn-gbohùn rẹ̀ y'ọ́ gba ọ̀run kan<br />
+										Ayé y'ọ́ gbọ́ pẹ̀lú.
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Egbe:</p>
+									<p class="text-gray-700 font-medium">
+										Orẹ-Ọ̀fẹ́ ṣá<br />
+										N'ìgbékẹ̀lé mi,<br />
+										Jésù kú fún aráyé,<br />
+										Ó kú fún mi pẹ̀lú.
+									</p>
+								</div>
+
+								<div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
+									<p class="font-semibold text-pink-800 mb-2">Verse 2:</p>
+									<p class="text-gray-700">
+										Orẹ-ọ̀fẹ́ l'ó kọ<br />
+										Orúkọ mi l'ọ̀run<br />
+										L'ó fi mi fún Od'àgútàn,<br />
+										T'Ó gba ìyà mi jẹ
+									</p>
+								</div>
+
+								<div class="bg-pink-100 p-4 sm:p-6 rounded-lg mb-16 sm:mb-20">
+									<p class="font-semibold text-pink-800 mb-2">Verse 3:</p>
+									<p class="text-gray-700">
+										Orẹ-Ọ̀fẹ́ tọ́ mi<br />
+										S'ọ́nà àláfíà,<br />
+										Ó ń tọ́jú mi l'ọjọ́jùmọ́<br />
+										Ní ìrìn àjò mi.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Scroll to Top Button -->
+		<button
+			id="scrollToTop"
+			class="fixed bottom-6 right-6 bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible"
+		>
+			<svg
+				class="w-5 h-5"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M5 10l7-7m0 0l7 7m-7-7v18"
+				></path>
+			</svg>
+		</button>
+
+		<script>
+			// Carousel functionality
+			let currentSlideIndex = 0;
+			const slides = document.querySelectorAll(".carousel-item");
+			const dots = document.querySelectorAll(".carousel-dot");
+			const totalSlides = slides.length;
+
+			function showSlide(index) {
+				slides.forEach((slide, i) => {
+					slide.classList.toggle("opacity-0", i !== index);
+				});
+
+				dots.forEach((dot, i) => {
+					dot.classList.toggle("bg-white/70", i === index);
+					dot.classList.toggle("bg-white/40", i !== index);
+				});
+			}
+
+			function nextSlide() {
+				currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+				showSlide(currentSlideIndex);
+			}
+
+			function previousSlide() {
+				currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+				showSlide(currentSlideIndex);
+			}
+
+			function currentSlide(index) {
+				currentSlideIndex = index - 1;
+				showSlide(currentSlideIndex);
+			}
+
+			// Auto-advance carousel every 5 seconds
+			setInterval(nextSlide, 5000);
+
+			// Language toggle functions
+			function toggleOpeningHymnLanguage(language) {
+				const englishContent = document.getElementById("openingEnglishContent");
+				const yorubaContent = document.getElementById("openingYorubaContent");
+				const englishBtn = document.getElementById("openingEnglishBtn");
+				const yorubaBtn = document.getElementById("openingYorubaBtn");
+
+				const activeClass =
+					"px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md";
+				const inactiveClass =
+					"px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200";
+
+				if (language === "english") {
+					englishContent.classList.remove("hidden");
+					yorubaContent.classList.add("hidden");
+					englishBtn.className = activeClass;
+					yorubaBtn.className = inactiveClass;
+				} else {
+					englishContent.classList.add("hidden");
+					yorubaContent.classList.remove("hidden");
+					yorubaBtn.className = activeClass;
+					englishBtn.className = inactiveClass;
+				}
+			}
+
+			function toggleClosingHymnLanguage(language) {
+				const englishContent = document.getElementById("closingEnglishContent");
+				const yorubaContent = document.getElementById("closingYorubaContent");
+				const englishBtn = document.getElementById("closingEnglishBtn");
+				const yorubaBtn = document.getElementById("closingYorubaBtn");
+
+				const activeClass =
+					"px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-pink-600 text-white shadow-md";
+				const inactiveClass =
+					"px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 text-pink-600 hover:bg-pink-200";
+
+				if (language === "english") {
+					englishContent.classList.remove("hidden");
+					yorubaContent.classList.add("hidden");
+					englishBtn.className = activeClass;
+					yorubaBtn.className = inactiveClass;
+				} else {
+					englishContent.classList.add("hidden");
+					yorubaContent.classList.remove("hidden");
+					yorubaBtn.className = activeClass;
+					englishBtn.className = inactiveClass;
+				}
+			}
+
+			// Scroll to top functionality
+			const scrollToTopBtn = document.getElementById("scrollToTop");
+
+			window.addEventListener("scroll", () => {
+				const scrollPosition = window.pageYOffset;
+				const windowHeight = window.innerHeight;
+
+				// Show/hide back to top button (only after scrolling past 2x screen height)
+				if (scrollPosition > windowHeight * 2.0) {
+					scrollToTopBtn.classList.remove("opacity-0", "invisible");
+					scrollToTopBtn.classList.add("opacity-100", "visible");
+				} else {
+					scrollToTopBtn.classList.add("opacity-0", "invisible");
+					scrollToTopBtn.classList.remove("opacity-100", "visible");
+				}
+			});
+
+			scrollToTopBtn.addEventListener("click", () => {
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
+
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute("href"));
+					if (target) {
+						target.scrollIntoView({ behavior: "smooth", block: "start" });
+					}
+				});
+			});
+		</script>
+	</body>
 </html>
