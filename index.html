@@ -862,7 +862,7 @@
         const windowHeight = window.innerHeight;
         
         // Show/hide back to top button (only after scrolling past first screen)
-        if (scrollPosition > windowHeight * 0.8) {
+        if (scrollPosition > windowHeight * 2.0) {
           scrollToTopBtn.classList.remove("opacity-0", "invisible");
           scrollToTopBtn.classList.add("opacity-100", "visible");
         } else {
