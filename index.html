@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birthday Program</title>
-    <link rel="preconnect" href="https://          <div class=          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
+    <link rel="preconnect" href="https://          <div class=          <div class        </div>
+
+        <!-- Dots Indicator positioned directly under the frame -->
+        <div class="mt-3 sm:mt-4 flex space-x-2 z-30">
+          <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+        </div>
+
+        <!-- Simple Static Arrow -->-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
             <div class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative">
               <img 
                 src="assets/img/img3.jpeg" 
@@ -219,11 +228,11 @@
     
     <!-- Image Carousel Section -->
     <section id="carousel" class="h-screen relative overflow-hidden">
-      <div class="relative h-full w-full flex flex-col items-center justify-center p-4 sm:p-8">
+      <div class="relative h-full w-full flex flex-col items-center justify-center p-6 sm:p-12">
         <!-- Carousel Content Container -->
-        <div class="flex flex-col items-center justify-center flex-1">
+        <div class="flex flex-col items-center justify-start pt-16 sm:pt-20 flex-1">
           <!-- Carousel Images -->
-          <div class="carousel-item active absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center">
+          <div class="carousel-item active absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
             <div class="birthday-frame w-full max-w-sm sm:max-w-lg aspect-[4/5] relative">
               <img 
                 src="assets/img/img1.jpeg" 
@@ -237,7 +246,7 @@
             </div>
           </div>
 
-          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
+          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
             <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/5] relative">
               <img 
                 src="assets/img/img2.jpeg" 
@@ -251,7 +260,7 @@
             </div>
           </div>
 
-          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
+          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-start pt-16 sm:pt-20 px-6 sm:px-12">
             <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/5] relative">
               <img 
                 src="assets/img/img3.jpeg" 
@@ -267,16 +276,16 @@
         </div>
 
         <!-- Dots Indicator positioned directly under the frame -->
-        <div class="mt-4 sm:mt-8 flex space-x-2 z-30">
+        <div class="mt-4 sm:mt-6 flex space-x-2 z-30">
           <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
           <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
           <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
         </div>
 
-        <!-- Scroll Down Indicator -->
-        <div class="fixed bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-30">
+        <!-- Simple Static Arrow -->
+        <div class="mt-8 sm:mt-12">
           <a href="#order-of-service" class="text-white hover:text-pink-200 transition-colors duration-300">
-            <svg class="w-6 h-6 sm:w-8 sm:h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
           </a>
@@ -752,10 +761,10 @@
     <!-- Scroll to Top Button -->
     <button
       id="scrollToTop"
-      class="fixed bottom-8 right-8 bg-pink-600 hover:bg-pink-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible"
+      class="fixed bottom-6 right-6 bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible"
     >
       <svg
-        class="w-6 h-6"
+        class="w-5 h-5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -849,7 +858,11 @@
       const scrollToTopBtn = document.getElementById("scrollToTop");
 
       window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        // Show/hide back to top button (only after scrolling past first screen)
+        if (scrollPosition > windowHeight * 0.8) {
           scrollToTopBtn.classList.remove("opacity-0", "invisible");
           scrollToTopBtn.classList.add("opacity-100", "visible");
         } else {
