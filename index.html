@@ -19,85 +19,139 @@
       section {
         scroll-snap-align: start;
       }
+
+      .birthday-frame {
+        position: relative;
+        border: 8px solid #d4af37;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+          inset 0 0 15px rgba(212, 175, 55, 0.1);
+        background: linear-gradient(45deg, #f4f4f4, #ffffff);
+        padding: 6px;
+      }
+
+      @media (min-width: 640px) {
+        .birthday-frame {
+          border: 12px solid #d4af37;
+          border-radius: 20px;
+          box-shadow: 0 0 30px rgba(212, 175, 55, 0.4),
+            inset 0 0 20px rgba(212, 175, 55, 0.1);
+          padding: 8px;
+        }
+      }
+
+      .birthday-frame::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        border: 3px solid #8b6914;
+        border-radius: 20px;
+        background: linear-gradient(45deg, #d4af37, #f4e99b, #d4af37);
+        z-index: -1;
+      }
+
+      @media (min-width: 640px) {
+        .birthday-frame::before {
+          top: -20px;
+          left: -20px;
+          right: -20px;
+          bottom: -20px;
+          border: 4px solid #8b6914;
+          border-radius: 25px;
+        }
+      }
+
+      .birthday-frame::after {
+        content: "✨ 80 Years of Blessing ✨";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #8b6914, #d4af37);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 11px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      @media (min-width: 640px) {
+        .birthday-frame::after {
+          top: -45px;
+          padding: 8px 20px;
+          border-radius: 20px;
+          font-size: 14px;
+        }
+      }
     </style>
   </head>
-  <body class="bg-gradient-to-br from-purple-100 to-pink-100 text-gray-800">
+  <body class="bg-gradient-to-br from-rose-300 to-pink-300 text-gray-800">
     <!-- Image Carousel Section -->
     <section id="carousel" class="h-screen relative overflow-hidden">
-      <div class="relative h-full w-full">
-        <!-- Carousel Images -->
-        <div class="carousel-item active absolute inset-0 transition-opacity duration-1000">
-          <img 
-            src="https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-            alt="Birthday Celebration Image 1" 
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <div class="text-center text-white px-4">
-              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Victoria @ 80</h1>
-              <p class="text-xl sm:text-2xl font-light">A Life of Grace and Blessing</p>
+      <div class="relative h-full w-full flex flex-col items-center justify-center p-4 sm:p-8">
+        <!-- Carousel Content Container -->
+        <div class="flex flex-col items-center justify-center flex-1">
+          <!-- Carousel Images -->
+          <div class="carousel-item active absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center">
+            <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/3] relative">
+              <img 
+                src="assets/img/img1.jpeg" 
+                alt="Birthday Celebration Image 1" 
+                class="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Mummy Shittu @ 80</h1>
+              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">A Life of Grace and Blessing</p>
+            </div>
+          </div>
+
+          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
+            <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/3] relative">
+              <img 
+                src="assets/img/img2.jpeg" 
+                alt="Birthday Celebration Image 2" 
+                class="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Celebrating Together</h1>
+              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">80 Years of God's Faithfulness</p>
+            </div>
+          </div>
+
+          <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex flex-col items-center justify-center">
+            <div class="birthday-frame w-full max-w-md sm:max-w-2xl aspect-[4/3] relative">
+              <img 
+                src="assets/img/img3.jpeg" 
+                alt="Birthday Celebration Image 3" 
+                class="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            <div class="mt-3 sm:mt-6 text-center text-white px-2 sm:px-4">
+              <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 drop-shadow-lg">Thanksgiving & Joy</h1>
+              <p class="text-sm sm:text-xl lg:text-2xl font-light drop-shadow-md">A Legacy of Love</p>
             </div>
           </div>
         </div>
 
-        <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0">
-          <img 
-            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-            alt="Birthday Celebration Image 2" 
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <div class="text-center text-white px-4">
-              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Celebrating Together</h1>
-              <p class="text-xl sm:text-2xl font-light">80 Years of God's Faithfulness</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0">
-          <img 
-            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-            alt="Birthday Celebration Image 3" 
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <div class="text-center text-white px-4">
-              <h1 class="text-4xl sm:text-6xl font-bold mb-4">Thanksgiving & Joy</h1>
-              <p class="text-xl sm:text-2xl font-light">A Legacy of Love</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <button 
-          onclick="previousSlide()" 
-          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-
-        <button 
-          onclick="nextSlide()" 
-          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-
-        <!-- Dots Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          <button onclick="currentSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
-          <button onclick="currentSlide(3)" class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+        <!-- Dots Indicator positioned directly under the frame -->
+        <div class="mt-4 sm:mt-8 flex space-x-2 z-30">
+          <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
+          <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300"></button>
         </div>
 
         <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+        <div class="fixed bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-30">
           <a href="#order-of-service" class="text-white hover:text-pink-200 transition-colors duration-300">
-            <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
           </a>
@@ -138,12 +192,12 @@
     <!-- Order of Service Section -->
     <section
       id="order-of-service"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 to-pink-100 pt-12 sm:pt-12"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200 to-pink-200 pt-12 sm:pt-12"
     >
       <div class="container mx-auto px-4 sm:px-6 text-center">
         <div class="max-w-3xl mx-auto">
           <h6 class="text-[18px] sm:text-xl font-[500] text-pink-900 mb-2 ">
-            Victoria Kikelomo Shittu @ 80
+            Mummy Shittu @ 80
           </h6>
           <h2 class="text-[34px] sm:text-5xl font-bold text-pink-800 mb-4 sm:mb-8">
             Order of Service
@@ -279,7 +333,7 @@
     <!-- Opening Hymn Section -->
     <section
       id="opening-hymn"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50/80 to-pink-50/80 "
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
     >
       <div class="container mx-auto px-4 sm:px-6 text-center">
         <div class="max-w-4xl mx-auto py-14 pb-20 ">
@@ -442,7 +496,7 @@
     <!-- Closing Hymn Section -->
     <section
       id="closing-hymn"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50/80 to-pink-50/80"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-200/80 to-pink-200/80"
     >
       <div class="container mx-auto px-4 sm:px-6 text-center">
         <div class="max-w-4xl mx-auto py-14 pb-20 ">
